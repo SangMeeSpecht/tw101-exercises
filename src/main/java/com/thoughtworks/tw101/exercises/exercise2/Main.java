@@ -19,6 +19,5 @@ public class Main {
 
         totalMethodCalls(5, accumulator);
 
-
     }
 }
