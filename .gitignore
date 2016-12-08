@@ -1,3 +1,6 @@
 .idea/
 .gradle/
 *.iml
+*.class
+.out/
+.DS_Store
