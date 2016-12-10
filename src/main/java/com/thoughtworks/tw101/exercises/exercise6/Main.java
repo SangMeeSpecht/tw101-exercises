@@ -14,11 +14,15 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList<Monster> monsters = new ArrayList<>();
-        monsters.add(new Troll());
-        monsters.add(new Orc());
+        monsters.add(new Troll("Troll", 40));
+        monsters.add(new Orc("Orc", 20));
 
-        System.out.println(monsters.get(0));
+        for (Monster monster : monsters) {
+            monster.takeDamage(10);
+        }
 
-
+        for (Monster monster : monsters) {
+            monster.reportStatus();
+        }
     }
 }
