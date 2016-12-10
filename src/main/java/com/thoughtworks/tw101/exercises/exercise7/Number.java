@@ -1,42 +1,30 @@
 package com.thoughtworks.tw101.exercises.exercise7;
 
 
-public class GameLogic {
-    private int minNumber;
-    private int maxNumber;
-    private int randNum;
+public class Number {
+    private int min;
+    private int max;
+    private int random;
 
-    public GameLogic(int minNumber, int maxNumber) {
-        this.minNumber = minNumber;
-        this.maxNumber = maxNumber;
-        randNum = randomNumber();
+    public Number(int min, int max) {
+        this.min = min;
+        this.max = max;
+        random = pickRandomNumber();
     }
 
-    public int getRandNum() {
-        return randNum;
-    }
-
-    public int getMinNumber() {
-        return minNumber;
-    }
-
-    public int getMaxNumber() {
-        return maxNumber;
-    }
-
-    public int randomNumber() {
-        return (int) (Math.random() * maxNumber + minNumber);
+    private int pickRandomNumber() {
+        return (int) (Math.random() * max + min);
     }
 
     public boolean tooLow(int guess) {
-        return (guess < randNum);
+        return (guess < random);
     }
 
     public boolean tooHigh(int guess) {
-        return (guess > randNum);
+        return (guess > random);
     }
 
     public boolean guessedCorrectly(int guess) {
-        return (guess == randNum);
+        return (guess == random);
     }
 }
