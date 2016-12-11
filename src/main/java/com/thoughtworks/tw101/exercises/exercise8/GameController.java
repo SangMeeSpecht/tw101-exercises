@@ -10,12 +10,14 @@ public class GameController {
     private Number number = new Number(minNum, maxNum);
     private Scanner scanner = new Scanner(System.in);
     private int userGuess;
+    private User user = new User();
 
     public void run() {
         View.chooseNumberMessage(minNum, maxNum);
 
         while (true) {
             userGuess = Integer.parseInt(scanner.next());
+            user.addGuess(userGuess);
 
             if (number.tooLow(userGuess)) {
                 View.tooLowMessage(userGuess);
@@ -26,5 +28,7 @@ public class GameController {
                 break;
             }
         }
+
+        View.renderUserGuesses(user.getGuesses());
     }
 }
