@@ -12,5 +12,4 @@ public class User {
     public ArrayList<Integer> getGuesses() {
         return guesses;
     }
-
 }
