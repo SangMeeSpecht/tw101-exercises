@@ -1,8 +1,5 @@
 package com.thoughtworks.tw101.introductory_programming_exercises;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 public class DiamondExercises {
     public static void main(String[] args) {
         System.out.println("\nDRAW A ISOSCELES TRIANGLE");
@@ -19,37 +16,38 @@ public class DiamondExercises {
 //             ***
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
-        renderTopRows(n);
-        renderMiddleRow(n);
+        int middleLength = 2 * n - 1;
+        renderTopRows(n, middleLength);
+        renderMiddleRowStars(middleLength);
     }
 
-    private static void renderTopRows(int middleRowNum) {
+    private static void renderTopRows(int middleRowNum, int middleRowLength) {
         for (int currentRowNum = 1; currentRowNum < middleRowNum; currentRowNum++) {
-            System.out.println(renderRow(currentRowNum, middleRowNum));
+            System.out.println(renderRow(currentRowNum, middleRowLength));
         }
     }
 
-    private static void renderBottomRows(int middleRowNum) {
+    private static void renderBottomRows(int middleRowNum, int middleRowLength) {
         int totalRows = 1 + 2 * (middleRowNum - 1);
 
         for (int currentRowNum = middleRowNum + 1; currentRowNum <= totalRows; currentRowNum++) {
-            System.out.println(renderRow(middleRowNum - (currentRowNum - middleRowNum), middleRowNum));
+            System.out.println(renderRow(middleRowNum - (currentRowNum - middleRowNum), middleRowLength));
         }
     }
 
-    private static String addCenteringSpaces(int currentRowNum, int middleRowNum) {
+    private static String addCenteringSpaces(int currentRowNum, int middleNumOfChars) {
         String spaces = "";
-        int numOfSpaces = middleRowNum - currentRowNum;
-
+        int numOfCharsInRow = 2 * currentRowNum - 1;
+        int numOfSpaces = ((middleNumOfChars - numOfCharsInRow) / 2);
         for (int i = 0; i < numOfSpaces; i++) {
             spaces += " ";
         }
         return spaces;
     }
 
-    private static String renderRow(int currentRowNum, int middleRowNum) {
+    private static String renderRow(int currentRowNum, int middleRowLength) {
         int stars = 2 * currentRowNum - 1;
-        String row = addCenteringSpaces(currentRowNum, middleRowNum);
+        String row = addCenteringSpaces(currentRowNum, middleRowLength);
 
         for (int i = 1; i <= stars; i++) {
             row += "*";
@@ -57,11 +55,10 @@ public class DiamondExercises {
         return row;
     }
 
-    private static void renderMiddleRow(int middleRowNum) {
+    private static void renderMiddleRowStars(int middleRowLength) {
         String centerString = "";
-        int numOfStars = middleRowNum * 2 - 1;
 
-        for (int i = 1; i <= numOfStars; i++) {
+        for (int i = 1; i <= middleRowLength; i++) {
             centerString += "*";
         }
         System.out.println(centerString);
@@ -75,9 +72,10 @@ public class DiamondExercises {
 //             ***
 //              *
     private static void drawADiamond(int n) {
-        renderTopRows(n);
-        renderMiddleRow(n);
-        renderBottomRows(n);
+        int middleLength = 2 * n - 1;
+        renderTopRows(n, middleLength);
+        renderMiddleRowStars(middleLength);
+        renderBottomRows(n, middleLength);
     }
 
 //    Diamond with Name
@@ -89,6 +87,15 @@ public class DiamondExercises {
 //            ***
 //             *
     private static void drawADiamondWithYourName(int n) {
+        String name = "SangMee";
+        int stringLength = name.length();
+
+        renderTopRows(n, stringLength);
+        System.out.println(name);
+        renderBottomRows(n, stringLength);
 
     }
+
+
+
 }
