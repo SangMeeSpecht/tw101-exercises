@@ -1,11 +1,13 @@
 package com.thoughtworks.tw101.exercises.exercise9;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Node {
-    public String name;
-    public Node left;
-    public Node right;
+    private String name;
+    private Node left;
+    private Node right;
+    private List<String> nameList = new ArrayList<>();
 
     public Node(String name) {
         this.name = name;
@@ -14,15 +16,13 @@ public class Node {
     public void add(String nameOfNewNode) {
         if (nameOfNewNode.compareTo(name) > 0) {
             if (right == null) {
-                Node node = new Node(nameOfNewNode);
-                right = node;
+                right = new Node(nameOfNewNode);
             } else {
                 right.add(nameOfNewNode);
             }
         } else {
             if (left == null) {
-                Node node = new Node(nameOfNewNode);
-                left = node;
+                left = new Node(nameOfNewNode);
             } else {
                 left.add(nameOfNewNode);
             }
@@ -30,6 +30,22 @@ public class Node {
     }
 
     public List<String> names() {
-        return null;
+        Node root = this;
+        if (root != null) {
+            binaryTreeTraverser(root);
+        }
+        return nameList;
+    }
+
+    public void binaryTreeTraverser(Node focusNode) {
+        if (focusNode.left != null) {
+            binaryTreeTraverser(focusNode.left);
+        }
+
+        nameList.add(focusNode.name);
+
+        if (focusNode.right != null) {
+            binaryTreeTraverser(focusNode.right);
+        }
     }
 }
