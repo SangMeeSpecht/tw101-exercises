@@ -11,17 +11,23 @@ public class Main {
         Node root = new Node("Cecil");
 
         root.add("Michelle");
+        System.out.println(root.right.name);
         root.add("Bill");
+        System.out.println(root.left.name);
         root.add("Jagruti");
+        System.out.println(root.right.left.name);
         root.add("Tess");
-        root.add("Sue-Ellen");
+        System.out.println(root.right.right.name);
+//        root.add("Sue-Ellen");
         root.add("Sara");
+        System.out.println(root.right.right.left.name);
         root.add("Casey");
-
-        List<String> names = root.names();
-
-        for (String name : names) {
-            System.out.println(name);
-        }
+        System.out.println(root.left.right.name);
+//
+//        List<String> names = root.names();
+//
+//        for (String name : names) {
+//            System.out.println(name);
+//        }
     }
 }
