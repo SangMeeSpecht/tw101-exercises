@@ -17,7 +17,7 @@ public class DiamondExercises {
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
         int middleLength = 2 * n - 1;
-        
+
         renderTopRows(n, middleLength);
         renderMiddleRowStars(middleLength);
     }
@@ -29,10 +29,8 @@ public class DiamondExercises {
     }
 
     private static void renderBottomRows(int middleRowNum, int middleRowLength) {
-        int totalRows = 1 + 2 * (middleRowNum - 1);
-
-        for (int currentRowNum = middleRowNum + 1; currentRowNum <= totalRows; currentRowNum++) {
-            System.out.println(renderRow(middleRowNum - (currentRowNum - middleRowNum), middleRowLength));
+        for (int currentRowNum = middleRowNum - 1; currentRowNum > 0; currentRowNum--) {
+            System.out.println(renderRow(currentRowNum, middleRowLength));
         }
     }
 
