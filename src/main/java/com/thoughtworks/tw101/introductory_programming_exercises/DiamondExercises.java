@@ -17,6 +17,7 @@ public class DiamondExercises {
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
         int middleLength = 2 * n - 1;
+        
         renderTopRows(n, middleLength);
         renderMiddleRowStars(middleLength);
     }
@@ -36,32 +37,28 @@ public class DiamondExercises {
     }
 
     private static String addCenteringSpaces(int currentRowNum, int middleNumOfChars) {
-        String spaces = "";
         int numOfCharsInRow = 2 * currentRowNum - 1;
         int numOfSpaces = ((middleNumOfChars - numOfCharsInRow) / 2);
-        for (int i = 0; i < numOfSpaces; i++) {
-            spaces += " ";
-        }
-        return spaces;
+
+        return (appendToString("", " ", numOfSpaces));
     }
 
     private static String renderRow(int currentRowNum, int middleRowLength) {
         int stars = 2 * currentRowNum - 1;
         String row = addCenteringSpaces(currentRowNum, middleRowLength);
 
-        for (int i = 1; i <= stars; i++) {
-            row += "*";
-        }
-        return row;
+        return appendToString(row, "*", stars);
     }
 
     private static void renderMiddleRowStars(int middleRowLength) {
-        String centerString = "";
+        System.out.println(appendToString("", "*", middleRowLength));
+    }
 
-        for (int i = 1; i <= middleRowLength; i++) {
-            centerString += "*";
+    private static String appendToString(String stringRow, String symbolToAppend, int number) {
+        for (int i = 1; i <= number; i++) {
+            stringRow += symbolToAppend;
         }
-        System.out.println(centerString);
+        return stringRow;
     }
 
 //    Diamond
@@ -73,6 +70,7 @@ public class DiamondExercises {
 //              *
     private static void drawADiamond(int n) {
         int middleLength = 2 * n - 1;
+
         renderTopRows(n, middleLength);
         renderMiddleRowStars(middleLength);
         renderBottomRows(n, middleLength);
@@ -93,9 +91,5 @@ public class DiamondExercises {
         renderTopRows(n, stringLength);
         System.out.println(name);
         renderBottomRows(n, stringLength);
-
     }
-
-
-
 }
