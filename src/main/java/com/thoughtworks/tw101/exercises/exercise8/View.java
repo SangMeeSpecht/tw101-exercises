@@ -7,7 +7,7 @@ public class View {
     private Scanner scanner = new Scanner(System.in);
 
     public void chooseNumberMessage(int startNumber, int endNumber) {
-        System.out.println("What number am I thinking of?  Guess a number between " + startNumber + " and " + endNumber);
+        System.out.printf("What number am I thinking of?  Guess a number between %d and %d%n", startNumber, endNumber);
     }
 
     public String getUserInput() {
@@ -15,19 +15,19 @@ public class View {
     }
 
     public void tooLowMessage(int number) {
-        System.out.println(number + " is too low.");
+        System.out.printf("%d is too low.%n", number);
     }
 
     public void tooHighMessage(int number) {
-        System.out.println(number + " is too high.");
+        System.out.printf("%d is too high.%n", number);
     }
 
     public void guessedCorrectlyMessage(int number) {
-        System.out.printf("Well aren't you clever!  " + number + " is the correct number!  You win!");
+        System.out.printf("Well aren't you clever!  %d is the correct number!  You win!%n", number);
     }
 
     public void incorrectInputTypeMessage(String userGuess) {
-        System.out.println("'" + userGuess + "' is not a valid input.  Please enter an integer.");
+        System.out.printf("'%s' is not a valid input.  Please enter an integer.%n", userGuess);
     }
 
     public void renderUserGuesses(ArrayList<Integer> guesses) {

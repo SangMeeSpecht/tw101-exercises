@@ -18,6 +18,6 @@ public class Orc implements Monster{
 
     @Override
     public void reportStatus() {
-        System.out.println(name + " has " + hp + "hp.");
+        System.out.printf("%s has %dhp.%n", name, hp);
     }
 }
