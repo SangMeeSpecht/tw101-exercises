@@ -7,7 +7,7 @@ public class Node {
     private String name;
     private Node left;
     private Node right;
-    private List<String> nameList = new ArrayList<>();
+//    private List<String> nameList = new ArrayList<>();
 
     public Node(String name) {
         this.name = name;
@@ -29,23 +29,20 @@ public class Node {
         }
     }
 
-    public List<String> names() {
-        Node root = this;
-        if (root != null) {
-            binaryTreeTraverser(root);
+    public ArrayList<String> names() {
+        ArrayList<String> nameList = new ArrayList<>();
+
+        if (left != null) {
+            nameList.addAll(left.names());
         }
+
+        nameList.add(name);
+
+        if (right != null) {
+            nameList.addAll(right.names());
+        }
+
         return nameList;
     }
 
-    private void binaryTreeTraverser(Node focusNode) {
-        if (focusNode.left != null) {
-            binaryTreeTraverser(focusNode.left);
-        }
-
-        nameList.add(focusNode.name);
-
-        if (focusNode.right != null) {
-            binaryTreeTraverser(focusNode.right);
-        }
-    }
 }
