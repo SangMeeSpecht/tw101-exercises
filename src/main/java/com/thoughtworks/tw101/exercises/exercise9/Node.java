@@ -7,7 +7,6 @@ public class Node {
     private String name;
     private Node left;
     private Node right;
-//    private List<String> nameList = new ArrayList<>();
 
     public Node(String name) {
         this.name = name;
