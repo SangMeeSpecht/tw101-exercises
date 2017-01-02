@@ -1,6 +1,8 @@
 package com.thoughtworks.tw101.exercises.exercise8;
 
 
+import java.util.ArrayList;
+
 public class GameController {
     private int minNum = 1;
     private int maxNum = 100;
@@ -8,7 +10,7 @@ public class GameController {
     private String rawUserGuess;
     private int userGuess;
     private View view = new View();
-    private User user = new User();
+    private ArrayList<Integer> userGuesses= new ArrayList();
     private boolean guessedCorrectly;
 
     public void run() {
@@ -19,14 +21,14 @@ public class GameController {
 
             try {
                 userGuess = Integer.parseInt(rawUserGuess);
-                user.addGuess(userGuess);
+                addGuess(userGuess);
                 evaluateGuess();
             }
             catch (NumberFormatException e) {
                 view.incorrectInputTypeMessage(rawUserGuess);
             }
         }
-        view.renderUserGuesses(user.getGuesses());
+        view.renderUserGuesses(userGuesses);
     }
 
     private void evaluateGuess() {
@@ -39,4 +41,9 @@ public class GameController {
             guessedCorrectly = true;
         }
     }
+
+    private void addGuess(int userGuess) {
+        userGuesses.add(userGuess);
+    }
+
 }
