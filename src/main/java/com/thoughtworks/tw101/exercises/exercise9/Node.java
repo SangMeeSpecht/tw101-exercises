@@ -37,7 +37,7 @@ public class Node {
         return nameList;
     }
 
-    public void binaryTreeTraverser(Node focusNode) {
+    private void binaryTreeTraverser(Node focusNode) {
         if (focusNode.left != null) {
             binaryTreeTraverser(focusNode.left);
         }
