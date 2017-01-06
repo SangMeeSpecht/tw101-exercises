@@ -3,7 +3,7 @@ package com.thoughtworks.tw101.exercises.exercise8;
 
 import java.util.ArrayList;
 
-public class GameController {
+public class Game {
     private int minNum = 1;
     private int maxNum = 100;
     private Number number = new Number(minNum, maxNum);
